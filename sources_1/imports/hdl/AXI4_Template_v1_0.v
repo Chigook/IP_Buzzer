@@ -43,13 +43,13 @@
 		output wire  s00_axi_rvalid,
 		input wire  s00_axi_rready
 	);
-	wire [31:0] w_freqPWM;
+	wire w_freqPWM;
 // Instantiation of Axi Bus Interface S00_AXI
 	AXI4_Template_v1_0_S00_AXI # ( 
 		.C_S_AXI_DATA_WIDTH(C_S00_AXI_DATA_WIDTH),
 		.C_S_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH)
 	) AXI4_Template_v1_0_S00_AXI_inst (
-		.i_freqPWM(w_freqPWM),
+		.o_freqPWM(w_freqPWM),
 		.S_AXI_ACLK(s00_axi_aclk),
 		.S_AXI_ARESETN(s00_axi_aresetn),
 		.S_AXI_AWADDR(s00_axi_awaddr),

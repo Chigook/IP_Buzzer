@@ -15,7 +15,7 @@
 	)
 	(
 		// Users to add ports here
-		input [31:0] i_freqPWM,
+		output o_freqPWM,
 		// User ports ends
 		// Do not modify the ports beyond this line
 
@@ -370,7 +370,7 @@
 	begin
 	      // Address decoding for reading registers
 	      case ( axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] )
-	        2'h0   : reg_data_out <= i_freqPWM; 	//0x44A0_0000
+	        2'h0   : reg_data_out <= slv_reg0; 	//0x44A0_0000
 	        2'h1   : reg_data_out <= slv_reg1; 	//0x44A0_0004
 	        2'h2   : reg_data_out <= slv_reg2; 	//0x44A0_0008
 	        2'h3   : reg_data_out <= slv_reg3; 	//0x44A0_000C
@@ -398,7 +398,7 @@
 	end    
 
 	// Add user logic here
-
+	assign o_freqPWM = slv_reg0[0];
 	// User logic ends
 
 	endmodule
