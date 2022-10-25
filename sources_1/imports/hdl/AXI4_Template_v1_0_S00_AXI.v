@@ -15,7 +15,7 @@
 	)
 	(
 		// Users to add ports here
-		output o_freqPWM,
+		output [31:0] o_freqPWM,
 		// User ports ends
 		// Do not modify the ports beyond this line
 
@@ -398,7 +398,7 @@
 	end    
 
 	// Add user logic here
-	assign o_freqPWM = slv_reg0[0];
+	assign o_freqPWM = slv_reg0;
 	// User logic ends
 
 	endmodule
